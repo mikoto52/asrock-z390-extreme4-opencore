@@ -21,20 +21,20 @@
 DefinitionBlock ("", "SSDT", 2, "HACK", "ASROCK", 0x00000000)
 {
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.LPCB, DeviceObj)
-    External (_SB_.PR00, ProcessorObj)
-    External (STAS, IntObj)
+    // External (_SB_.PCI0.LPCB, DeviceObj)
+    // External (_SB_.PR00, ProcessorObj)
+    // External (STAS, IntObj)
     External (XPRW, MethodObj)    // 2 Arguments
 
     Scope (\_SB)
     {
-        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        /* Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             If (_OSI ("Darwin"))
             {
                 STAS = One
             }
-        }
+        } */
 
         Device (USBX)
         {
@@ -75,7 +75,7 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "ASROCK", 0x00000000)
             }
         }
 
-        Scope (PR00)
+        /* Scope (PR00)
         {
             If (_OSI ("Darwin"))
             {
@@ -96,7 +96,7 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "ASROCK", 0x00000000)
                     })
                 }
             }
-        }
+        } */
 
         Scope (PCI0)
         {
@@ -116,7 +116,7 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "ASROCK", 0x00000000)
                 }
             }
 
-            Scope (LPCB)
+            /*Scope (LPCB)
             {
                 Device (PMCR)
                 {
@@ -157,7 +157,7 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "ASROCK", 0x00000000)
                         }
                     }
                 }
-            }
+            } */
         }
     }
 
